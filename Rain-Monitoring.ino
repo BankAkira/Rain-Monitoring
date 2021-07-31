@@ -39,7 +39,7 @@ const int chipSelect = 53;
 File dataFile;
 bool fileError = false;
 bool sdError = false;
-int nowHr = 99;
+int nowHr;
 
 void logHeader(bool fileError, bool sdError) {
   if (!fileError and !sdError) {
@@ -96,6 +96,7 @@ void setup() {
     dataFile = SD.open(fileLog, FILE_WRITE);
     //write log header 
     logHeader(fileError, sdError);
+    nowHr = now.hour();
 }
 
 
